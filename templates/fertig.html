@@ -1,0 +1,57 @@
+<!doctype html>
+	<head>
+		<meta charset=utf-8> 
+		<title>Pointless Converter</title> 
+		<link rel="shortcut icon" href="{{ url_for('static', filename='img/favicon.ico') }}">
+
+		<!-- Bootstrap Core CSS -->
+    	<link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet">
+
+    	<!-- Page layout styling -->
+    	<link href="{{ url_for('static', filename='css/PointlessStyle.css') }}" rel="stylesheet">
+	</head>
+	<body>
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-md-2">
+					<!-- empty side bar -->
+				</div>
+				<div class="col-md-3">
+					<div class="row">
+
+						<br><br>	
+						<h1>Pointless Converter</h1>
+						
+						<br><br>
+
+					</div>
+					<div id="flash" class="row">
+						{% with messages = get_flashed_messages() %}
+						  	{% if messages %}
+						    	{% for message in messages %}
+						      		<h4>{{ message }}<h4>
+						    	{% endfor %}
+						  	{% endif %}
+						{% endwith %}
+						<a href="/" class="btn btn-default">Back</a>
+					</div>
+				</div>
+				<div class="col-md-7">
+					<!-- empty side bar -->
+				</div>
+			</div>
+		</div>
+		<div id="loadingGIF"></div>
+		<div id="loading"></div>
+		<script type="text/javascript">
+			window.onload=function(){
+					$("div#loading").delay("fast").fadeOut(); 
+					$("div#loadingGIF").delay("fast").fadeOut(); 
+				};
+		</script>
+		<!-- jQuery -->
+	    <script type="text/javascript" src="{{ url_for('static', filename='js/jquery.js') }}"></script>
+	    <!-- Bootstrap Core JavaScript -->
+	    <script type="text/javascript" src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+	</body>
+</html>
