@@ -135,8 +135,8 @@ def create_dbms(dbms_name, user, password):
 	conn = psycopg2.connect("host='localhost' dbname='"+dbms_name+"' user='"+ user + "' password='"+ password + "'")
 	cur = conn.cursor()
 	cur.execute('CREATE EXTENSION POSTGIS;')
-	cur.execute('CREATE TABLE pointcloud(index varchar(100), materialpath varchar(100), x varchar(100), y varchar(100), z varchar(100), red varchar(3), green varchar(3), blue varchar(3));')
-	cur.execute('CREATE TABLE emptyspace(materialpath varchar(100), x varchar(100), y varchar(100), z varchar(100), leafSize int);')
+	cur.execute('CREATE TABLE pointcloud(index varchar(100) PRIMARY KEY, materialpath varchar(100), x varchar(100), y varchar(100), z varchar(100), red varchar(3), green varchar(3), blue varchar(3));')
+	cur.execute('CREATE TABLE emptyspace(materialpath varchar(100) PRIMARY KEY, x varchar(100), y varchar(100), z varchar(100), leafSize int);')
 	conn.commit()
 
 
